@@ -1,0 +1,23 @@
+{
+  "source": "runs/paper_mse/checkpoints/repetition_metrics_sensitivity.csv.gz",
+  "source_sha256": "d62ced1d27c344908a6249bb4b64fd34d6b49782dd7345773f2851b54792ad4f",
+  "code_sha256": "84ddffaebda4dd4a5dea7c28d3ff6dde3aed2b6e4c265b97d658876dccbdec43",
+  "rows": 135000,
+  "settings": 1350,
+  "repetitions_per_setting": 100,
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 20261101,
+  "bootstrap_method": "paired percentile over whole seeded repetitions; common resampling weights across settings",
+  "coverage_interval": "pointwise Wilson 95%",
+  "noise_smoothness": 0.5,
+  "bandwidth_figure_N": 500,
+  "rti_scale": "sqrt_hsic",
+  "hsic_estimates_clipped": false,
+  "validation": [
+    "complete balanced grid",
+    "paired seeds 10--109",
+    "finite inputs",
+    "sqrt-HSIC RTI endpoints reproduce all coverage flags",
+    "all MSEs match original summaries"
+  ]
+}

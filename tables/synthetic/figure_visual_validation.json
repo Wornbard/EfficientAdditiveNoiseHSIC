@@ -1,0 +1,374 @@
+{
+  "comparison": "PNG pixels at native resolution; PDFs rendered with Poppler pdftoppm -r 144 -singlefile -png",
+  "result": "Every active figure and every compared QQ companion is pixel-identical to the current paper reference",
+  "figures": [
+    {
+      "file": "qq_calibration_N500_m_smoothness_1_eps_smoothness_0p25_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.pdf",
+      "reference_size": [
+        972,
+        596
+      ],
+      "generated_size": [
+        972,
+        596
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": false,
+      "reference_sha256": "adb34676a76cb98b523281a2921cf6939283918934976eb5a3db6d2bdc8c2e27",
+      "generated_sha256": "bbd26eed3dcb009cfa92b44d850318c6643171ba3100eaa4fca2214dc78fef7e"
+    },
+    {
+      "file": "qq_calibration_N500_m_smoothness_1_eps_smoothness_0p25_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.png",
+      "reference_size": [
+        2024,
+        1240
+      ],
+      "generated_size": [
+        2024,
+        1240
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": true,
+      "reference_sha256": "db82e69fe6b93a1864925df4a642023f407f5906328ea045836f5cceccda1389",
+      "generated_sha256": "db82e69fe6b93a1864925df4a642023f407f5906328ea045836f5cceccda1389"
+    },
+    {
+      "file": "qq_calibration_N500_m_smoothness_1_eps_smoothness_0p5_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.pdf",
+      "reference_size": [
+        972,
+        596
+      ],
+      "generated_size": [
+        972,
+        596
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": false,
+      "reference_sha256": "5e68d37228e54e814b98f9dcbf0ac322f12bdae8e35c3569929bef4aec846d2a",
+      "generated_sha256": "e4f92cce6e59499268c4a8c78d0c820508c056e55dcf22d774c1b2e4c4dbab72"
+    },
+    {
+      "file": "qq_calibration_N500_m_smoothness_1_eps_smoothness_0p5_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.png",
+      "reference_size": [
+        2024,
+        1240
+      ],
+      "generated_size": [
+        2024,
+        1240
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": true,
+      "reference_sha256": "80c418c48c42098afe83b4e502e62b65270c44f25d1794600e5ee96b4930158f",
+      "generated_sha256": "80c418c48c42098afe83b4e502e62b65270c44f25d1794600e5ee96b4930158f"
+    },
+    {
+      "file": "qq_calibration_N500_m_smoothness_1_eps_smoothness_0p75_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.pdf",
+      "reference_size": [
+        972,
+        596
+      ],
+      "generated_size": [
+        972,
+        596
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": true,
+      "reference_sha256": "924386320f4b91943f736065bcade936d598cef28ff40851900969056651e4e4",
+      "generated_sha256": "4544c2ce89bf31b355f81b685aed979836a7b4996d54f5a790dba7b140e0d463"
+    },
+    {
+      "file": "qq_calibration_N500_m_smoothness_1_eps_smoothness_0p75_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.png",
+      "reference_size": [
+        2024,
+        1240
+      ],
+      "generated_size": [
+        2024,
+        1240
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": false,
+      "reference_sha256": "fc684467102c9885376fc8f10055000dab79d3e65c3de3f1aceba0b6deec5d69",
+      "generated_sha256": "fc684467102c9885376fc8f10055000dab79d3e65c3de3f1aceba0b6deec5d69"
+    },
+    {
+      "file": "qq_calibration_N500_m_smoothness_1p5_eps_smoothness_0p25_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.pdf",
+      "reference_size": [
+        972,
+        596
+      ],
+      "generated_size": [
+        972,
+        596
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": false,
+      "reference_sha256": "a0e69f19ce9bb1f487a6188bc876a7e16c746987f42b8e1c32bcca1cb668affd",
+      "generated_sha256": "93404b3d2e2a7dd5d1580656b3c6d3a36a65b7296da3eaa06f153dddf0b3a5db"
+    },
+    {
+      "file": "qq_calibration_N500_m_smoothness_1p5_eps_smoothness_0p25_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.png",
+      "reference_size": [
+        2024,
+        1240
+      ],
+      "generated_size": [
+        2024,
+        1240
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": true,
+      "reference_sha256": "5d475133559ad3484a996a1d05e61296b1c1f13e0643dd9e2df1aaddbc1ac56a",
+      "generated_sha256": "5d475133559ad3484a996a1d05e61296b1c1f13e0643dd9e2df1aaddbc1ac56a"
+    },
+    {
+      "file": "qq_calibration_N500_m_smoothness_1p5_eps_smoothness_0p5_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.pdf",
+      "reference_size": [
+        972,
+        596
+      ],
+      "generated_size": [
+        972,
+        596
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": false,
+      "reference_sha256": "9004888359c22913e257f7ace42ecf43ef0f08d9863b5d7832c36b44a09e5db7",
+      "generated_sha256": "20a3503876853345a633667bad8bdc8a579cab47927f245a3743c3dfb054431e"
+    },
+    {
+      "file": "qq_calibration_N500_m_smoothness_1p5_eps_smoothness_0p5_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.png",
+      "reference_size": [
+        2024,
+        1240
+      ],
+      "generated_size": [
+        2024,
+        1240
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": true,
+      "reference_sha256": "9fc81d0d1e0685e6f7d868301cffed660938133736f193b56aff4f272664854e",
+      "generated_sha256": "9fc81d0d1e0685e6f7d868301cffed660938133736f193b56aff4f272664854e"
+    },
+    {
+      "file": "qq_calibration_N500_m_smoothness_1p5_eps_smoothness_0p75_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.pdf",
+      "reference_size": [
+        972,
+        596
+      ],
+      "generated_size": [
+        972,
+        596
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": false,
+      "reference_sha256": "5950482491a6e66daafe7066652627e3e0cf190d406b83c9933611216686f9ef",
+      "generated_sha256": "e30f3b25d7c707c6f8812752a5231dd9c1365a3b0d5d92b2e83746fa784cf987"
+    },
+    {
+      "file": "qq_calibration_N500_m_smoothness_1p5_eps_smoothness_0p75_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.png",
+      "reference_size": [
+        2024,
+        1240
+      ],
+      "generated_size": [
+        2024,
+        1240
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": true,
+      "reference_sha256": "9ebeed785f69a5384a83ad5e73229f5ade23c11d1b958bb4ab996a452e0ffbf1",
+      "generated_sha256": "9ebeed785f69a5384a83ad5e73229f5ade23c11d1b958bb4ab996a452e0ffbf1"
+    },
+    {
+      "file": "qq_calibration_N500_m_smoothness_2_eps_smoothness_0p25_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.pdf",
+      "reference_size": [
+        972,
+        596
+      ],
+      "generated_size": [
+        972,
+        596
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": false,
+      "reference_sha256": "b43bb3bad2afc2a21dc7102a0c6772337231db88f56be96fef18b79c03ef2cbd",
+      "generated_sha256": "76742819dea2f72c009d90262bfd23eb8f93241826fc3367e21bb3bb06bd5c79"
+    },
+    {
+      "file": "qq_calibration_N500_m_smoothness_2_eps_smoothness_0p25_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.png",
+      "reference_size": [
+        2024,
+        1240
+      ],
+      "generated_size": [
+        2024,
+        1240
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": true,
+      "reference_sha256": "8486201627e0c6cd4652d755b3ab15cd5036adb7be94bf7db31556415e4042c2",
+      "generated_sha256": "8486201627e0c6cd4652d755b3ab15cd5036adb7be94bf7db31556415e4042c2"
+    },
+    {
+      "file": "qq_calibration_N500_m_smoothness_2_eps_smoothness_0p5_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.pdf",
+      "reference_size": [
+        972,
+        596
+      ],
+      "generated_size": [
+        972,
+        596
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": false,
+      "reference_sha256": "6cf3ace823a2006aec78ed35fe21898aab5c960deccb50539b8df75f75d84fd7",
+      "generated_sha256": "60482dabdeed41eb1bd0265838b6fec870140f25c48a6ff142c00e0e4fb1df4a"
+    },
+    {
+      "file": "qq_calibration_N500_m_smoothness_2_eps_smoothness_0p5_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.png",
+      "reference_size": [
+        2024,
+        1240
+      ],
+      "generated_size": [
+        2024,
+        1240
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": true,
+      "reference_sha256": "f8943e922fccfbd41af258bb037e8b142300b6de126d8ba3e1a540cb0a443003",
+      "generated_sha256": "f8943e922fccfbd41af258bb037e8b142300b6de126d8ba3e1a540cb0a443003"
+    },
+    {
+      "file": "qq_calibration_N500_m_smoothness_2_eps_smoothness_0p75_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.pdf",
+      "reference_size": [
+        972,
+        596
+      ],
+      "generated_size": [
+        972,
+        596
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": false,
+      "reference_sha256": "83d3576e7e6ae5d30010206726ecdd621b03c2b81058b4e15757b8020a425cec",
+      "generated_sha256": "24e5e0f02259d439af257bf7523281fdda55002d8211ebf982b5edd5761b0835"
+    },
+    {
+      "file": "qq_calibration_N500_m_smoothness_2_eps_smoothness_0p75_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.png",
+      "reference_size": [
+        2024,
+        1240
+      ],
+      "generated_size": [
+        2024,
+        1240
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": true,
+      "reference_sha256": "bbaa273a9aa6a4a5b1fe5ea9c58442cb977eae729e8ae394e1dd5badaf9a2a4a",
+      "generated_sha256": "bbaa273a9aa6a4a5b1fe5ea9c58442cb977eae729e8ae394e1dd5badaf9a2a4a"
+    },
+    {
+      "file": "rejection_probability_m_smoothness_1_N_500_single_row.pdf",
+      "reference_size": [
+        1013,
+        351
+      ],
+      "generated_size": [
+        1013,
+        351
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": true,
+      "reference_sha256": "575f175b621287fde00c321df63dd9beb70e982f2290c7b1b78e1c147e79d1f4",
+      "generated_sha256": "53112612b866045d048ef8d460ed8d18bdee7d272d70ad472c19ccd68ba5c03a"
+    },
+    {
+      "file": "split_test_rejection_m_smoothness_1_rho_0_0p3_N_250_500_1000_1500_combined.pdf",
+      "reference_size": [
+        753,
+        370
+      ],
+      "generated_size": [
+        753,
+        370
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": true,
+      "reference_sha256": "f83746e9db357994e48972db4cd0b1353f1d4ffa03bd225169b732e5367ccf9a",
+      "generated_sha256": "496d35d5bad85dc90fdfc8a516aad4c8ad609c0fbfa2fbfbcf511e2c3b884a4e"
+    },
+    {
+      "file": "synthetic_dgp_rho_0_m_smoothness_1.png",
+      "reference_size": [
+        2048,
+        1576
+      ],
+      "generated_size": [
+        2048,
+        1576
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": true,
+      "reference_sha256": "58e027813759d533ebbed11ec0a549b0e696355150c71de9778f04d28a3dfa15",
+      "generated_sha256": "58e027813759d533ebbed11ec0a549b0e696355150c71de9778f04d28a3dfa15"
+    },
+    {
+      "file": "synthetic_dgp_rho_0p3_m_smoothness_1_sigma_smoothness_0p25.png",
+      "reference_size": [
+        2048,
+        1576
+      ],
+      "generated_size": [
+        2048,
+        1576
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": true,
+      "reference_sha256": "63e32d573060b8240e9a448b1a0bc3906104988169b7011c0863ca9f26c3c2b0",
+      "generated_sha256": "63e32d573060b8240e9a448b1a0bc3906104988169b7011c0863ca9f26c3c2b0"
+    },
+    {
+      "file": "synthetic_dgp_rho_0p5_m_smoothness_1_sigma_smoothness_0p75.png",
+      "reference_size": [
+        2048,
+        1576
+      ],
+      "generated_size": [
+        2048,
+        1576
+      ],
+      "mae": 0.0,
+      "changed_pixels": 0.0,
+      "active_in_paper": true,
+      "reference_sha256": "8e48f5bbb8331c2fcfd652c3143de12ce1c2465fc94dfd6ec68d73d481fd1c7f",
+      "generated_sha256": "8e48f5bbb8331c2fcfd652c3143de12ce1c2465fc94dfd6ec68d73d481fd1c7f"
+    }
+  ]
+}

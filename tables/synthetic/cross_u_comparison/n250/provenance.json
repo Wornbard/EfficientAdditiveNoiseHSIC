@@ -1,0 +1,20 @@
+{
+  "input_runs": [
+    "runs/paper_cross_u_squared_u"
+  ],
+  "input_manifest_sha256": {
+    "runs/paper_cross_u_squared_u": "034100a7505923229bfe2e794a0211c0d0d9b4ac51fad6cfa3c48d75bc349a0a"
+  },
+  "generator_sha256": "f60ae044bc2214aaf093e1ce6217cc3427c66be22a79ea554e25aaddaa52e2a2",
+  "cohort": "all_available",
+  "delta_definition": "signed U +/- 2*z*sqrt(score_variance/n), intersect with HSIC>=0, then sqrt",
+  "sample_size": 250,
+  "noise_smoothness": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "repetitions": 1800,
+  "summary_rows": 54,
+  "replicate_metrics_sha256": "4ce66ad67e6956c3c07c3d526312daad7ccd18b41f602f1cf5f1bb4a0213af40"
+}

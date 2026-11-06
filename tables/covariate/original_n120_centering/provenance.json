@@ -1,0 +1,19 @@
+{
+  "input": "results/covariate/delta_repetitions.csv",
+  "sha256": "d04906c74ff4fa0ed53bebd41c0f18c4bbbe04f08f77c3bd6307c94b972adda4",
+  "sample_sizes": [
+    120
+  ],
+  "repetitions": 500,
+  "prefixes": [
+    500
+  ],
+  "change": "Center only: U versus V; identical LOO squared-scale SE",
+  "se": "2*sqrt(score_var/N)",
+  "oracle": false,
+  "empty": "negative upper endpoint stays empty, width zero and no coverage",
+  "coverage_equivalence_checked": true,
+  "diagonal_correction_nonnegative_checked": true,
+  "norm_secondary": "U center with V variance; V center with V variance; historical U center with U variance",
+  "historical_undefined": "U<=0 is undefined; both conditional and undefined-as-failure coverage reported"
+}

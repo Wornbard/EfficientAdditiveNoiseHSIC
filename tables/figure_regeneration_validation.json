@@ -1,0 +1,170 @@
+[
+  {
+    "path": "figures/causal_arrow/causal_arrow_data.png",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "f79633d31f4a47502126a56a60ba029af338f1fb64317efcc31394e44cc621b5"
+  },
+  {
+    "path": "figures/causal_arrow/causal_arrow_rej_prob_compact.pdf",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "b2853bbe500ed85b7b042d2e6f6ca318422172f92f583e313149614360158881"
+  },
+  {
+    "path": "figures/causal_arrow/causal_arrow_violin_no_title.png",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "66733f87c7773c43a907f0d9a3c2ff37f533079e17cef7d8aa084a4cf1199df1"
+  },
+  {
+    "path": "figures/synthetic/debiasing_mse/bandwidth_gain_rho0.pdf",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "c1e168f1bf2d708683078c1eda4fe7bfd5fc35213b239fdaf9255003883e2bbb"
+  },
+  {
+    "path": "figures/synthetic/debiasing_mse/bandwidth_gain_rho0p1.pdf",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "2380e8c2cc88b6f21892b3de1b19ebb3d6d2a392da46a55e6a3a1e7d05dc34f1"
+  },
+  {
+    "path": "figures/synthetic/debiasing_mse/bandwidth_gain_rho0p2.pdf",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "567e47f72d9dbaf4c94660da2ba961de6a4045bc668fbc319c2e9b36eb98e58a"
+  },
+  {
+    "path": "figures/synthetic/debiasing_mse/bandwidth_gain_rho0p3.pdf",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "27ffac02e752eab0b5fe0265f678a7264879b3beb3f21631d1c300aec949365c"
+  },
+  {
+    "path": "figures/synthetic/debiasing_mse/bandwidth_gain_rho0p4.pdf",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "80b23e05dab31d8890c4e64b63e9fe24a0c8dd5f409acd8f789501eebca8b760"
+  },
+  {
+    "path": "figures/synthetic/debiasing_mse/bandwidth_gain_rho0p5.pdf",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "d8d0143642f642aff211a59615613f788e5cdcda5ee19f71f263da60c7cb3882"
+  },
+  {
+    "path": "figures/synthetic/qq_calibration_N500_m_smoothness_1_eps_smoothness_0p25_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.png",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "db82e69fe6b93a1864925df4a642023f407f5906328ea045836f5cceccda1389"
+  },
+  {
+    "path": "figures/synthetic/qq_calibration_N500_m_smoothness_1_eps_smoothness_0p5_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.png",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "80c418c48c42098afe83b4e502e62b65270c44f25d1794600e5ee96b4930158f"
+  },
+  {
+    "path": "figures/synthetic/qq_calibration_N500_m_smoothness_1_eps_smoothness_0p75_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.pdf",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "4544c2ce89bf31b355f81b685aed979836a7b4996d54f5a790dba7b140e0d463"
+  },
+  {
+    "path": "figures/synthetic/qq_calibration_N500_m_smoothness_1p5_eps_smoothness_0p25_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.png",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "5d475133559ad3484a996a1d05e61296b1c1f13e0643dd9e2df1aaddbc1ac56a"
+  },
+  {
+    "path": "figures/synthetic/qq_calibration_N500_m_smoothness_1p5_eps_smoothness_0p5_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.png",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "9fc81d0d1e0685e6f7d868301cffed660938133736f193b56aff4f272664854e"
+  },
+  {
+    "path": "figures/synthetic/qq_calibration_N500_m_smoothness_1p5_eps_smoothness_0p75_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.png",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "9ebeed785f69a5384a83ad5e73229f5ade23c11d1b958bb4ab996a452e0ffbf1"
+  },
+  {
+    "path": "figures/synthetic/qq_calibration_N500_m_smoothness_2_eps_smoothness_0p25_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.png",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "8486201627e0c6cd4652d755b3ab15cd5036adb7be94bf7db31556415e4042c2"
+  },
+  {
+    "path": "figures/synthetic/qq_calibration_N500_m_smoothness_2_eps_smoothness_0p5_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.png",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "f8943e922fccfbd41af258bb037e8b142300b6de126d8ba3e1a540cb0a443003"
+  },
+  {
+    "path": "figures/synthetic/qq_calibration_N500_m_smoothness_2_eps_smoothness_0p75_rho_0_0p1_0p2_0p3_0p4_0p5_naive_vs_debiased.png",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "bbaa273a9aa6a4a5b1fe5ea9c58442cb977eae729e8ae394e1dd5badaf9a2a4a"
+  },
+  {
+    "path": "figures/synthetic/rejection_probability_m_smoothness_1_N_500_single_row.pdf",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "53112612b866045d048ef8d460ed8d18bdee7d272d70ad472c19ccd68ba5c03a"
+  },
+  {
+    "path": "figures/synthetic/split_test_rejection_m_smoothness_1_rho_0_0p3_N_250_500_1000_1500_combined.pdf",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "496d35d5bad85dc90fdfc8a516aad4c8ad609c0fbfa2fbfbcf511e2c3b884a4e"
+  },
+  {
+    "path": "figures/synthetic/synthetic_dgp_rho_0_m_smoothness_1.png",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "58e027813759d533ebbed11ec0a549b0e696355150c71de9778f04d28a3dfa15"
+  },
+  {
+    "path": "figures/synthetic/synthetic_dgp_rho_0p3_m_smoothness_1_sigma_smoothness_0p25.png",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "63e32d573060b8240e9a448b1a0bc3906104988169b7011c0863ca9f26c3c2b0"
+  },
+  {
+    "path": "figures/synthetic/synthetic_dgp_rho_0p5_m_smoothness_1_sigma_smoothness_0p75.png",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "8e48f5bbb8331c2fcfd652c3143de12ce1c2465fc94dfd6ec68d73d481fd1c7f"
+  },
+  {
+    "path": "figures/synthetic/witness_slices/witness_slices_m_smoothness_1_eps_smoothness_0p75_rho_0p5_N500.pdf",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "118ce655150f437646c051cf0c0d41d377da37977f41c6d52c38fa1532d6a1ef"
+  },
+  {
+    "path": "figures/synthetic/witness_slices/witness_slices_m_smoothness_1_eps_smoothness_0p75_rho_0p5_N500_full_2d.pdf",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "09a6461efeeeddf0f5f26e9ce303b5106358cac046705ea16f9604b1f1902c3e"
+  },
+  {
+    "path": "figures/toy_residual_hsic_with_covariate/delta_method_confidence_sets_with_covariate_horizontal.pdf",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 18504,
+    "regenerated_sha256": "3afc03ade4be833b4b57debb53f73ae6f16ec30a5a79931b942bbd544196f00f"
+  },
+  {
+    "path": "figures/toy_residual_hsic_with_covariate/structural_fold_fits_with_covariate.pdf",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "0130b9c79e4b970d47cacc049e907076384c9906f019e8aafaba1e0f2c6ae9b9"
+  },
+  {
+    "path": "figures/toy_residual_hsic_with_covariate/u_statistic_oracle_comparison_with_covariate.pdf",
+    "same_pixel_dimensions": true,
+    "changed_pixels": 0,
+    "regenerated_sha256": "9cc7f25f769a5eac64b01ddd23582ef72ff9c3e56a6e10e229ee96005c379650"
+  }
+]

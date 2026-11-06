@@ -1,0 +1,21 @@
+{
+  "input": "results/covariate/validation_n120_1000/repetitions.csv",
+  "sha256": "72834c847f26c1d2c136043defd99e04392b09c4377a5cefbd06902998012f41",
+  "sample_sizes": [
+    120
+  ],
+  "repetitions": 1000,
+  "prefixes": [
+    250,
+    500,
+    1000
+  ],
+  "change": "Center only: U versus V; identical LOO squared-scale SE",
+  "se": "2*sqrt(score_var/N)",
+  "oracle": false,
+  "empty": "negative upper endpoint stays empty, width zero and no coverage",
+  "coverage_equivalence_checked": true,
+  "diagonal_correction_nonnegative_checked": true,
+  "norm_secondary": "U center with V variance; V center with V variance; historical U center with U variance",
+  "historical_undefined": "U<=0 is undefined; both conditional and undefined-as-failure coverage reported"
+}

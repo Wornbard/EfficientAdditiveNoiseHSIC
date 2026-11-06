@@ -1,0 +1,48 @@
+\begin{table}[p]
+\blue{
+\centering\small
+\captionsetup{labelfont={color=blue}}
+\caption{\red{MSE of the operator estimate and HSIC $U$-statistic, and coverage of nominal $95\%$ RTI intervals for $\sqrt{\mathrm{HSIC}}$, at median bandwidths, $s_m=1$, and $s_\epsilon=0.5$. Entries are estimates with $95\%$ Monte Carlo intervals from 100 paired repetitions.}}
+\label{tab:debiasing-mse-median}
+\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{@{}rcccccc@{}}
+\toprule
+& \multicolumn{2}{c}{\red{\shortstack{Operator MSE\\$(\times10^4)$}}}
+& \multicolumn{2}{c}{\red{\shortstack{HSIC $U$-statistic MSE\\$(\times10^7)$}}}
+& \multicolumn{2}{c}{\red{\shortstack{RTI coverage\\(\%)}}}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(l){6-7}
+$n$ & Plug-in & Debiased & Plug-in & Debiased & Plug-in & Debiased\\
+\midrule
+\multicolumn{7}{c}{\textbf{(a)} $\rho=0$}\\[2pt]
+250 & \shortstack{$9.92$\\{\scriptsize $[8.91,11.07]$}} & \shortstack{$10.49$\\{\scriptsize $[9.36,11.79]$}} & \shortstack{$4.19$\\{\scriptsize $[3.16,5.51]$}} & \shortstack{$3.75$\\{\scriptsize $[2.01,6.00]$}} & \shortstack{$96.00$\\{\scriptsize $[90.16,98.43]$}} & \shortstack{$93.00$\\{\scriptsize $[86.25,96.57]$}}\\[2pt]
+500 & \shortstack{$4.55$\\{\scriptsize $[4.16,4.95]$}} & \shortstack{$4.66$\\{\scriptsize $[4.26,5.08]$}} & \shortstack{$0.78$\\{\scriptsize $[0.65,0.91]$}} & \shortstack{$0.43$\\{\scriptsize $[0.30,0.57]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}} & \shortstack{$96.00$\\{\scriptsize $[90.16,98.43]$}}\\[2pt]
+1000 & \shortstack{$2.27$\\{\scriptsize $[2.04,2.51]$}} & \shortstack{$2.32$\\{\scriptsize $[2.09,2.56]$}} & \shortstack{$0.24$\\{\scriptsize $[0.20,0.28]$}} & \shortstack{$0.15$\\{\scriptsize $[0.10,0.19]$}} & \shortstack{$99.00$\\{\scriptsize $[94.55,99.82]$}} & \shortstack{$92.00$\\{\scriptsize $[85.00,95.89]$}}\\[2pt]
+\midrule
+\multicolumn{7}{c}{\textbf{(b)} $\rho=0.1$}\\[2pt]
+250 & \shortstack{$10.27$\\{\scriptsize $[9.24,11.42]$}} & \shortstack{$10.89$\\{\scriptsize $[9.72,12.22]$}} & \shortstack{$5.43$\\{\scriptsize $[4.09,7.12]$}} & \shortstack{$5.48$\\{\scriptsize $[3.32,8.16]$}} & \shortstack{$99.00$\\{\scriptsize $[94.55,99.82]$}} & \shortstack{$95.00$\\{\scriptsize $[88.82,97.85]$}}\\[2pt]
+500 & \shortstack{$4.67$\\{\scriptsize $[4.29,5.07]$}} & \shortstack{$4.83$\\{\scriptsize $[4.42,5.25]$}} & \shortstack{$1.25$\\{\scriptsize $[1.00,1.52]$}} & \shortstack{$0.97$\\{\scriptsize $[0.70,1.30]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}} & \shortstack{$98.00$\\{\scriptsize $[93.00,99.45]$}}\\[2pt]
+1000 & \shortstack{$2.31$\\{\scriptsize $[2.08,2.55]$}} & \shortstack{$2.36$\\{\scriptsize $[2.13,2.60]$}} & \shortstack{$0.52$\\{\scriptsize $[0.38,0.67]$}} & \shortstack{$0.40$\\{\scriptsize $[0.24,0.59]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}} & \shortstack{$97.00$\\{\scriptsize $[91.55,98.97]$}}\\[2pt]
+\midrule
+\multicolumn{7}{c}{\textbf{(c)} $\rho=0.2$}\\[2pt]
+250 & \shortstack{$10.53$\\{\scriptsize $[9.49,11.67]$}} & \shortstack{$11.35$\\{\scriptsize $[10.16,12.68]$}} & \shortstack{$8.36$\\{\scriptsize $[6.02,11.18]$}} & \shortstack{$8.90$\\{\scriptsize $[5.71,12.79]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}} & \shortstack{$99.00$\\{\scriptsize $[94.55,99.82]$}}\\[2pt]
+500 & \shortstack{$4.74$\\{\scriptsize $[4.36,5.11]$}} & \shortstack{$5.03$\\{\scriptsize $[4.63,5.46]$}} & \shortstack{$2.40$\\{\scriptsize $[1.76,3.11]$}} & \shortstack{$2.19$\\{\scriptsize $[1.48,3.00]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}} & \shortstack{$99.00$\\{\scriptsize $[94.55,99.82]$}}\\[2pt]
+1000 & \shortstack{$2.35$\\{\scriptsize $[2.12,2.59]$}} & \shortstack{$2.45$\\{\scriptsize $[2.22,2.71]$}} & \shortstack{$1.12$\\{\scriptsize $[0.78,1.51]$}} & \shortstack{$1.00$\\{\scriptsize $[0.62,1.47]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}} & \shortstack{$99.00$\\{\scriptsize $[94.55,99.82]$}}\\[2pt]
+\midrule
+\multicolumn{7}{c}{\textbf{(d)} $\rho=0.3$}\\[2pt]
+250 & \shortstack{$10.86$\\{\scriptsize $[9.84,11.93]$}} & \shortstack{$12.09$\\{\scriptsize $[10.88,13.41]$}} & \shortstack{$11.30$\\{\scriptsize $[7.99,15.30]$}} & \shortstack{$13.10$\\{\scriptsize $[8.69,18.37]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}} & \shortstack{$99.00$\\{\scriptsize $[94.55,99.82]$}}\\[2pt]
+500 & \shortstack{$4.82$\\{\scriptsize $[4.46,5.19]$}} & \shortstack{$5.35$\\{\scriptsize $[4.95,5.77]$}} & \shortstack{$3.88$\\{\scriptsize $[2.72,5.26]$}} & \shortstack{$3.80$\\{\scriptsize $[2.52,5.28]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}}\\[2pt]
+1000 & \shortstack{$2.40$\\{\scriptsize $[2.18,2.63]$}} & \shortstack{$2.59$\\{\scriptsize $[2.35,2.84]$}} & \shortstack{$1.88$\\{\scriptsize $[1.28,2.59]$}} & \shortstack{$1.74$\\{\scriptsize $[1.11,2.49]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}}\\[2pt]
+\midrule
+\multicolumn{7}{c}{\textbf{(e)} $\rho=0.4$}\\[2pt]
+250 & \shortstack{$11.39$\\{\scriptsize $[10.36,12.49]$}} & \shortstack{$13.08$\\{\scriptsize $[11.74,14.54]$}} & \shortstack{$15.19$\\{\scriptsize $[10.38,21.18]$}} & \shortstack{$18.71$\\{\scriptsize $[12.05,26.90]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}} & \shortstack{$99.00$\\{\scriptsize $[94.55,99.82]$}}\\[2pt]
+500 & \shortstack{$5.10$\\{\scriptsize $[4.72,5.51]$}} & \shortstack{$5.78$\\{\scriptsize $[5.36,6.21]$}} & \shortstack{$5.67$\\{\scriptsize $[3.91,7.86]$}} & \shortstack{$5.76$\\{\scriptsize $[3.87,8.04]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}}\\[2pt]
+1000 & \shortstack{$2.45$\\{\scriptsize $[2.23,2.69]$}} & \shortstack{$2.77$\\{\scriptsize $[2.52,3.04]$}} & \shortstack{$2.69$\\{\scriptsize $[1.80,3.75]$}} & \shortstack{$2.67$\\{\scriptsize $[1.68,3.91]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}}\\[2pt]
+\midrule
+\multicolumn{7}{c}{\textbf{(f)} $\rho=0.5$}\\[2pt]
+250 & \shortstack{$11.55$\\{\scriptsize $[10.59,12.56]$}} & \shortstack{$14.03$\\{\scriptsize $[12.67,15.49]$}} & \shortstack{$18.41$\\{\scriptsize $[12.31,26.70]$}} & \shortstack{$22.62$\\{\scriptsize $[14.74,33.18]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}}\\[2pt]
+500 & \shortstack{$5.29$\\{\scriptsize $[4.89,5.72]$}} & \shortstack{$6.39$\\{\scriptsize $[5.92,6.91]$}} & \shortstack{$7.56$\\{\scriptsize $[5.14,10.66]$}} & \shortstack{$7.89$\\{\scriptsize $[5.36,11.08]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}}\\[2pt]
+1000 & \shortstack{$2.57$\\{\scriptsize $[2.35,2.81]$}} & \shortstack{$3.13$\\{\scriptsize $[2.87,3.43]$}} & \shortstack{$3.63$\\{\scriptsize $[2.41,5.09]$}} & \shortstack{$3.78$\\{\scriptsize $[2.34,5.63]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}}\\[2pt]
+\bottomrule
+\end{tabular}\par
+}
+\end{table}

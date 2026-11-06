@@ -1,0 +1,3 @@
+study,estimator,nominal_level,N,n,coverage_gain_v_minus_u,paired_mcse,newly_covered,newly_missed,prefix_repetitions
+validation_n160_500,debiased,0.95,160,500,0.042,0.009831852860032164,23,2,500
+validation_n160_500,plug-in,0.95,160,500,0.022,0.006566447781940087,11,0,500

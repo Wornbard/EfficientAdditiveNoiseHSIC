@@ -1,0 +1,10 @@
+Each entry is `rejection probability [95% exact confidence interval]`; `n=1000` fresh Monte Carlo data sets per cell (repetitions 100--1099).
+
+| Regime | Gaussian kernel HSIC, cross-fitted plug-in permutation test | Gaussian kernel HSIC, cross-fitted debiased test (ours) | BP/White, linear $X$ feature | BP/White, Fourier $X$ features ($K=2$) | BP/White, Fourier $X$ features ($K=4$) | Levene, $B=10$ | Brown-Forsythe, $B=10$ | Quantile regression, $\tau\in\{0.25,0.5,0.75\}$, Fourier $X$ features ($K=4$) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| rho=0, X→Y (size) | 0.010 [0.005, 0.018] | 0.086 [0.069, 0.105] | 0.071 [0.056, 0.089] | 0.107 [0.089, 0.128] | 0.111 [0.092, 0.132] | 0.085 [0.068, 0.104] | 0.045 [0.033, 0.060] | 0.006 [0.002, 0.013] |
+| rho=0, Y→X (power) | 0.126 [0.106, 0.148] | 0.483 [0.452, 0.514] | 0.062 [0.048, 0.079] | 0.238 [0.212, 0.266] | 0.354 [0.324, 0.385] | 0.407 [0.376, 0.438] | 0.184 [0.160, 0.209] | 0.226 [0.200, 0.253] |
+| rho=0.35, X→Y (power) | 0.994 [0.987, 0.998] | 0.999 [0.994, 1.000] | 0.984 [0.974, 0.991] | 1.000 [0.996, 1.000] | 1.000 [0.996, 1.000] | 1.000 [0.996, 1.000] | 0.998 [0.993, 1.000] | 0.348 [0.318, 0.378] |
+| rho=0.35, Y→X (power) | 0.324 [0.295, 0.354] | 0.658 [0.628, 0.687] | 0.349 [0.319, 0.379] | 0.386 [0.356, 0.417] | 0.444 [0.413, 0.475] | 0.531 [0.500, 0.562] | 0.291 [0.263, 0.320] | 0.288 [0.260, 0.317] |
+
+Only `rho=0, X→Y` is a null-size row. All methods use the same five-fold cross-fitted kernel-ridge residual vector within each Monte Carlo data set and direction. The quantile test uses `tau={0.25, 0.50, 0.75}` with a Bonferroni joint p-value. In method titles, `X` denotes the generic stage-two predictor or covariate; in the `Y→X` rows, that predictor is the original `Y` variable.

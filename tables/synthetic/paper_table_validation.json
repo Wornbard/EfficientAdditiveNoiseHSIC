@@ -1,0 +1,13 @@
+{
+  "protocol": "U-centered squared-HSIC Wald interval with SE=2*sqrt(score_var/n), intersected with [0,infinity) then square-rooted; empty sets have width zero and no coverage",
+  "source": "runs/multivariate_sweep",
+  "source_pattern": "favourability_search_updated_*",
+  "source_rows": 23987,
+  "reported_delta_method": "delta_debiased_u",
+  "reported_method_excluded_rows": 0,
+  "historical_comparison": "delta_coverage_update.csv; new delta results intentionally replace the old conditional-coverage values",
+  "source_hashes": {
+    "synthetic_paper_plots.ipynb": "055240f3aadd8cc72740b257bfec749d051f9363f7419501ea8fb38801e1c359",
+    "paper_plot_utils.py": "a6ca29f59c455a751f494749b804d7f8114566927a9713635beeaaeefa756b6b"
+  }
+}

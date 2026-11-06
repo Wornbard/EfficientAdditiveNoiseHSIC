@@ -1,0 +1,14 @@
+{
+  "input": "/tmp/hsic_robust_synthetic/tables/synthetic/analysis_input_rows.csv.gz",
+  "sha256": "688899dfba05a4d05bb30bd58a0d01f9ab8bc4a8ade6f20038216cdc3f4f27c3",
+  "input_rows": 18077,
+  "settings": 162,
+  "nominal_level": 0.95,
+  "variance": "saved delta_debiased_u / delta_naive_u plugin point-score variance",
+  "method": "sqrt(([U-z*2*sqrt(score_var/n),U+z*2*sqrt(score_var/n)]) intersect [0,infinity))",
+  "empty_set": "upper endpoint below zero; width0, no coverage, no zero inclusion",
+  "selection": "same method for every repetition within each setting; no cutoff chosen",
+  "null_rows": "descriptive only; population target set to exact model value zero after tolerance check",
+  "coverage_invariance_checked": true,
+  "boundary_checks_passed": true
+}

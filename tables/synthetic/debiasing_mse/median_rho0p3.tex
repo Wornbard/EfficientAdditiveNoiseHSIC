@@ -1,0 +1,14 @@
+\begin{table}[htbp]
+\centering\small
+\caption{Operator and HSIC U-statistic MSE, and 95\% RTI coverage for $\sqrt{\mathrm{HSIC}}$, at $\rho=0.3$, $s_m=1$, $s_\sigma=0.5$, and median bandwidths. Each cell gives an estimate and a 95\% Monte Carlo interval from 100 paired repetitions.}
+\label{tab:debiasing-mse-rho0p3}
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}rcccccc@{}}\toprule
+& \multicolumn{2}{c}{Operator MSE ($\times 10^{4}$)} & \multicolumn{2}{c}{HSIC U MSE ($\times 10^{7}$)} & \multicolumn{2}{c}{RTI coverage (\%)}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(l){6-7}
+$N$ & Plug-in & Debiased & Plug-in & Debiased & Plug-in & Debiased\\\midrule
+250 & \shortstack{$10.86$\\{\scriptsize $[9.84,11.93]$}} & \shortstack{$12.09$\\{\scriptsize $[10.88,13.41]$}} & \shortstack{$11.30$\\{\scriptsize $[7.99,15.30]$}} & \shortstack{$13.10$\\{\scriptsize $[8.69,18.37]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}} & \shortstack{$99.00$\\{\scriptsize $[94.55,99.82]$}}\\[3pt]
+500 & \shortstack{$4.82$\\{\scriptsize $[4.46,5.19]$}} & \shortstack{$5.35$\\{\scriptsize $[4.95,5.77]$}} & \shortstack{$3.88$\\{\scriptsize $[2.72,5.26]$}} & \shortstack{$3.80$\\{\scriptsize $[2.52,5.28]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}}\\[3pt]
+1000 & \shortstack{$2.40$\\{\scriptsize $[2.18,2.63]$}} & \shortstack{$2.59$\\{\scriptsize $[2.35,2.84]$}} & \shortstack{$1.88$\\{\scriptsize $[1.28,2.59]$}} & \shortstack{$1.74$\\{\scriptsize $[1.11,2.49]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}} & \shortstack{$100.00$\\{\scriptsize $[96.30,100.00]$}}\\[3pt]
+\bottomrule\end{tabular}
+\end{table}

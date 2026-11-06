@@ -1,0 +1,34 @@
+sweep:
+  N:
+  - 250
+  - 500
+  - 1000
+  num_folds: 5
+  dimx: 1
+  dimy: 1
+  random_key: range(10,110)
+  rho:
+  - 0.0
+  - 0.1
+  - 0.2
+  - 0.3
+  - 0.4
+  - 0.5
+  base_std: 0.35
+  signal_std: 1.0
+  f_smoothness:
+  - 1.0
+  - 1.5
+  - 2.0
+  eps_smoothness:
+  - 0.25
+  - 0.5
+  - 0.75
+  f_omega0: 1.0
+  eps_omega0: 1.0
+  bootstrap_B: 1000
+  compute_v_diagnostics: false
+  compute_crossfit_rate_diagnostics: false
+  compute_plugin_bias_diagnostic: false
+  # Legacy direct-norm diagnostic only; reported endpoints use squared-HSIC Wald sets.
+  delta_u_variance_reference: v

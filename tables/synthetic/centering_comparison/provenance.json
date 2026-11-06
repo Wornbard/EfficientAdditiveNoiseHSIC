@@ -1,0 +1,75 @@
+{
+  "input": "/tmp/hsic_robust_synthetic/tables/synthetic/analysis_input_rows.csv.gz",
+  "sha256": "688899dfba05a4d05bb30bd58a0d01f9ab8bc4a8ade6f20038216cdc3f4f27c3",
+  "input_rows": 18077,
+  "settings": 162,
+  "nominal_level": 0.95,
+  "standard_error": "same saved delta_{naive,debiased}_u plugin point-score variance: 2*sqrt(score_var/n) for both centers",
+  "centers": [
+    "raw U",
+    "V"
+  ],
+  "variance_changed": false,
+  "rows_dropped": 0,
+  "transform": "nonnegative intersection, then square root; empty remains empty",
+  "null_rows": "descriptive only; known null target replaces negligible quadrature roundoff",
+  "overview": {
+    "debiased": {
+      "positive_settings": 135,
+      "u_coverage_range": [
+        0.86,
+        0.9622641509433962
+      ],
+      "v_coverage_range": [
+        0.87,
+        0.9727272727272728
+      ],
+      "v_higher_count": 85,
+      "u_higher_count": 35,
+      "equal_coverage_count": 15,
+      "v_closer_to_95_count": 81,
+      "u_closer_to_95_count": 37,
+      "equal_distance_to_95_count": 17,
+      "null_u_range": [
+        0.93,
+        0.9761904761904762
+      ],
+      "null_v_range": [
+        0.89,
+        0.965
+      ]
+    },
+    "naive": {
+      "positive_settings": 135,
+      "u_coverage_range": [
+        0.8148148148148148,
+        0.9528301886792453
+      ],
+      "v_coverage_range": [
+        0.92,
+        0.99
+      ],
+      "v_higher_count": 132,
+      "u_higher_count": 2,
+      "equal_coverage_count": 1,
+      "v_closer_to_95_count": 130,
+      "u_closer_to_95_count": 3,
+      "equal_distance_to_95_count": 2,
+      "null_u_range": [
+        0.8272727272727273,
+        0.919047619047619
+      ],
+      "null_v_range": [
+        0.96,
+        1.0
+      ]
+    }
+  },
+  "checks": [
+    "same sample size and radius",
+    "V>=U",
+    "coverage invariance",
+    "complete coverage/miss accounting",
+    "empty boundary"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "paper_source": "appendix_sections/experiment_details.tex",
+  "paper_source_sha256": "ef32112baaea09f35d9a5f0d1463156a0b2df1066465c9448c8861f0ee6f5eef",
+  "delta_method": "delta_debiased_u",
+  "validation": "all notebook cells executed against archived input results; exported CSV values compared to paper source",
+  "tables": [
+    {
+      "table": 1,
+      "matching_displayed_cells": 18,
+      "expected_displayed_cells": 18,
+      "includes_error_bars": true
+    },
+    {
+      "table": 2,
+      "matching_displayed_cells": 15,
+      "expected_displayed_cells": 15,
+      "includes_error_bars": true
+    },
+    {
+      "table": 3,
+      "matching_displayed_cells": 16,
+      "expected_displayed_cells": 16
+    },
+    {
+      "table": 4,
+      "matching_displayed_cells": 16,
+      "expected_displayed_cells": 16
+    },
+    {
+      "table": 5,
+      "matching_displayed_cells": 16,
+      "expected_displayed_cells": 16
+    }
+  ]
+}

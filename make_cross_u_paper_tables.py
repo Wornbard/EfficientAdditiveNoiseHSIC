@@ -1,0 +1,247 @@
+"""Make the three-method, sqrt-HSIC tables from completed cross-U replays.
+
+Every method must retain every repetition. Delta uses a signed-U HSIC Wald set followed by square-root mapping. Inputs and outputs retain their provenance.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import math
+import os
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+from run_cross_u_benchmark import file_hash
+from summarize_cross_u_benchmark import DEBIASED, DELTA, RTI, KEYS
+
+
+ROOT = Path(os.environ.get("HSIC_PROJECT_ROOT", Path(__file__).resolve().parent))
+METHODS = [DEBIASED, DELTA, RTI]
+LABELS = {DEBIASED: "Cross-U", DELTA: "Delta (squared-U)", RTI: "RTI (V)"}
+COLORS = {DEBIASED: "#1f77b4", DELTA: "#2ca02c", RTI: "#ff7f0e"}
+
+
+def read_completed_run(run: Path) -> pd.DataFrame:
+    """Read an existing metric CSV, or require every manifest checkpoint to exist."""
+    metrics = run / "replicate_metrics.csv"
+    if metrics.exists():
+        completion = json.loads((run / "completion.json").read_text())
+        if completion["missing"]:
+            raise ValueError(f"Incomplete benchmark: {run}")
+        return pd.read_csv(metrics, low_memory=False)
+    manifest = json.loads((run / "manifest.json").read_text())
+    rows = []
+    for task in manifest["tasks"]:
+        for entry in task["entries"]:
+            path = run / "replicates" / (entry["run_name"] + ".json")
+            result = json.loads(path.read_text())
+            if not result["replay_verified"] or result["source_sha256"] != entry["sha256"]:
+                raise ValueError(f"Unverified or mismatched checkpoint: {path}")
+            for method in METHODS:
+                rows.append({**result["config"], "method": method,
+                             "population_hsic": result["population_hsic"],
+                             "source": result["source"], **result["methods"][method]})
+    return pd.DataFrame(rows)
+
+
+def summarize_tables(frame: pd.DataFrame) -> pd.DataFrame:
+    """Summarize width and actual membership of zero, including empty confidence sets."""
+    frame = frame[frame.method.isin(METHODS)].copy()
+    if frame.duplicated(KEYS + ["method"]).any():
+        raise ValueError("Duplicate method/repetition records.")
+    if not frame.groupby(KEYS).method.nunique().eq(3).all():
+        raise ValueError("Every repetition must contain all three methods.")
+    if not frame.groupby(KEYS).population_hsic.nunique().eq(1).all():
+        raise ValueError("Methods must share the same target within each repetition.")
+    if frame.coverage.isna().any():
+        raise ValueError("Undefined primary interval; refusing to discard repetitions.")
+    rows = []
+    settings = ["N", "eps_smoothness", "rho", "method"]
+    for key, available in frame.groupby(settings, sort=False):
+        selected = frame
+        for column, value in zip(settings, key):
+            selected = selected[selected[column].eq(value)]
+        defined = selected
+        widths = defined.width_sqrt_hsic.to_numpy(dtype=float)
+        if not np.isfinite(widths).all() or (widths < 0).any():
+            raise ValueError("Defined confidence sets must have finite nonnegative widths.")
+        # Empty sets have width zero but do not contain zero.
+        includes_zero = (~defined["empty"].astype(bool)
+                         & defined.lower_hsic.le(0) & defined.upper_hsic.ge(0))
+        if not np.array_equal(includes_zero, ~defined.ci_excludes_zero.astype(bool)):
+            raise ValueError("Stored exclusion flag disagrees with confidence-set membership.")
+        n = len(defined)
+        rows.append({**dict(zip(settings, key)), "cohort": "all_available",
+                     "available_runs": len(available),
+                     "defined_runs": int(available.coverage.notna().sum()),
+                     "reported_runs": n, "empty_sets": int(defined["empty"].sum()),
+                     "mean_width_sqrt_hsic": widths.mean() if n else np.nan,
+                     "width_mc_se": widths.std(ddof=1) / math.sqrt(n) if n > 1 else np.nan,
+                     "includes_zero_count": int(includes_zero.sum()),
+                     "probability_includes_zero": includes_zero.mean() if n else np.nan})
+    return pd.DataFrame(rows)
+
+
+def table_tex(panel: pd.DataFrame) -> str:
+    """Render three method rows; each cell is width with zero inclusion beneath it."""
+    n = int(panel.N.iloc[0])
+    smoothness = float(panel.eps_smoothness.iloc[0])
+    tag = f"n{n}_noise{smoothness:g}".replace(".", "p")
+    rhos = sorted(panel.rho.unique())
+    available = sorted(panel.available_runs.unique())
+    run_text = str(available[0]) if len(available) == 1 else f"{available[0]}--{available[-1]}"
+    note = (rf"All three methods use the same {run_text} repetitions per column. "
+            r"Delta is the square-root image of the signed-U Wald set for HSIC; "
+            r"negative U-statistics are retained.")
+    lines = [
+        "% Generated by make_cross_u_paper_tables.py; do not edit numeric entries.",
+        r"\begin{table}[htbp]", r"\centering", r"\small",
+        rf"\caption{{Mean width (first line) and empirical probability of including zero "
+        rf"(in parentheses) for nominal 95\% confidence sets for $\sqrt{{\mathrm{{HSIC}}}}$. "
+        rf"Here $n={n}$, noise smoothness $s_\varepsilon={smoothness:g}$, and mean smoothness $s_f=1$. "
+        r"All methods are debiased and use five-fold cross-fitting.}",
+        rf"\label{{tab:cross-u-{tag}}}", r"\setlength{\tabcolsep}{6pt}",
+        r"\renewcommand{\arraystretch}{1.25}",
+        r"\begin{tabular}{@{}l" + "c" * len(rhos) + r"@{}}", r"\toprule",
+        "Method & " + " & ".join(rf"$\rho={rho:.1f}$" for rho in rhos) + r" \\",
+        r"\midrule",
+    ]
+    for method in METHODS:
+        values = panel[panel.method.eq(method)].set_index("rho")
+        cells = []
+        for rho in rhos:
+            value = values.loc[rho]
+            if value.reported_runs:
+                cells.append(r"\shortstack{$" + f"{value.mean_width_sqrt_hsic:.4f}"
+                             + r"$\\$(" + f"{value.probability_includes_zero:.2f}" + r")$}")
+            else:
+                cells.append("---")
+        label = LABELS[method]
+        lines.append(label + " & " + " & ".join(cells) + r" \\")
+    lines.extend([r"\bottomrule", r"\end{tabular}", r"\par\smallskip",
+                  r"\begin{minipage}{0.98\linewidth}\footnotesize", note,
+                  r"The delta approximation is not calibrated at $\rho=0$; that column is descriptive.",
+                  r"\end{minipage}", r"\end{table}", ""])
+    return "\n".join(lines)
+
+
+def combined_table_tex(summary: pd.DataFrame) -> str:
+    """Keep the paper's single-table layout, changing only numeric entries."""
+    labels = {
+        DEBIASED: r"\red{cross $U$-statistic}",
+        DELTA: r"\red{delta method}",
+        RTI: r"\red{RTI}",
+    }
+    lines = [r"\begin{table}[htbp]", r"\blue{", r"\centering\small",
+             r"\captionsetup{labelfont={color=blue}}",
+             r"\caption{\blue{Mean width and empirical probability of including zero (in parentheses)",
+             r"for nominal $95\%$ confidence sets for $\|\Psi_0\|_{\mathcal H_{kl}}$,",
+             r"with $n=250$ and $s_m=1$.",
+             r"All methods are debiased and use five-fold cross-fitting and the same 100 repetitions per setting.}}",
+             r"\label{tab:cross-u-n250}", r"\setlength{\tabcolsep}{4pt}",
+             r"\renewcommand{\arraystretch}{1.25}", r"\begin{tabular}{@{}lcccccc@{}}", r"\toprule",
+             r"Method & $\rho=0.0$ & $\rho=0.1$ & $\rho=0.2$ & $\rho=0.3$ & $\rho=0.4$ & $\rho=0.5$ \\",
+             r"\midrule"]
+    for index, smoothness in enumerate((.25, .5, .75)):
+        if index:
+            lines.append(r"\midrule")
+        lines.append(rf"\multicolumn{{7}}{{c}}{{\textbf{{({chr(97+index)})}} $s_\epsilon={smoothness:g}$}} \\[3pt]")
+        for method in METHODS:
+            group = summary[(summary.eps_smoothness == smoothness) & (summary.method == method)].set_index("rho")
+            cells = [r"\shortstack{$" + f"{group.loc[rho, 'mean_width_sqrt_hsic']:.4f}"
+                     + r"$\\$(" + f"{group.loc[rho, 'probability_includes_zero']:.2f}" + r")$}"
+                     for rho in (0., .1, .2, .3, .4, .5)]
+            lines.append(labels[method] + " & " + " & ".join(cells) + r" \\[3pt]")
+    lines.extend([r"\bottomrule", r"\end{tabular}\par", "}", r"\end{table}"])
+    return "\n".join(lines) + "\n"
+
+
+def plot_tables(summary: pd.DataFrame, destination: Path) -> None:
+    """Plot the same table entries without changing their averaging cohorts."""
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    smoothnesses = sorted(summary.eps_smoothness.unique())
+    fig, axes = plt.subplots(2, len(smoothnesses), figsize=(4 * len(smoothnesses), 5.9),
+                             squeeze=False, sharex=True, sharey="row")
+    for column, smoothness in enumerate(smoothnesses):
+        panel = summary[summary.eps_smoothness.eq(smoothness)]
+        for method in METHODS:
+            values = panel[panel.method.eq(method)].sort_values("rho")
+            style = {"label": LABELS[method], "color": COLORS[method], "marker": "o",
+                     "linestyle": "--" if method == DELTA else "-"}
+            axes[0, column].plot(values.rho, values.mean_width_sqrt_hsic, **style)
+            axes[1, column].plot(values.rho, values.probability_includes_zero, **style)
+        axes[0, column].set_title(rf"Noise smoothness $s_\varepsilon={smoothness:g}$")
+        axes[1, column].set_ylim(-.025, 1.025)
+        axes[1, column].set_xlabel(r"$\rho$")
+        for ax in axes[:, column]:
+            ax.set_xticks(sorted(panel.rho.unique()))
+            ax.grid(axis="y", alpha=.2)
+    axes[0, 0].set_ylabel(r"Mean CI width for $\sqrt{\mathrm{HSIC}}$")
+    axes[1, 0].set_ylabel("Probability of including zero")
+    handles, labels = axes[0, 0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="lower center", bbox_to_anchor=(.5, .045), ncol=3)
+    note = "All runs retained. Delta: signed-U HSIC Wald set, then square root."
+    fig.text(.5, .015, note + " Delta at rho=0 is descriptive.", ha="center", fontsize=8)
+    fig.suptitle(f"Debiased 95% confidence sets, n={int(summary.N.iloc[0])}, five-fold cross-fitting")
+    fig.tight_layout(rect=(0, .12, 1, .95))
+    for extension in ("pdf", "png"):
+        fig.savefig(destination.with_suffix("." + extension), dpi=180)
+    plt.close(fig)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--runs", nargs="+", type=Path, default=[
+        ROOT / "runs/paper_cross_u_squared_u"])
+    parser.add_argument("--sample-size", type=int, default=250)
+    parser.add_argument("--tables-dir", type=Path)
+    parser.add_argument("--figures-dir", type=Path)
+    args = parser.parse_args()
+    frame = pd.concat([read_completed_run(run) for run in args.runs], ignore_index=True)
+    frame = frame[frame.N.eq(args.sample_size) & frame.method.isin(METHODS)].copy()
+    if frame.empty or not frame.f_smoothness.eq(1).all() or not frame.num_folds.eq(5).all():
+        raise ValueError("Expected runs with mean smoothness 1 and five nuisance folds.")
+    if not frame.random_key.between(10, 109).all():
+        raise ValueError("Expected the prespecified seeds 10 through 109.")
+    expected = pd.MultiIndex.from_product([[args.sample_size], [.25, .5, .75],
+        [0., .1, .2, .3, .4, .5], range(10, 110), METHODS], names=KEYS + ["method"])
+    actual = pd.MultiIndex.from_frame(frame[KEYS + ["method"]])
+    if len(actual) != len(expected) or len(expected.difference(actual)):
+        raise ValueError("Paper table requires all 18 settings, all three methods and seeds 10--109.")
+    summary = summarize_tables(frame)
+    tables = args.tables_dir or ROOT / f"tables/synthetic/cross_u_comparison/n{args.sample_size}"
+    figures = args.figures_dir or ROOT / f"figures/synthetic/cross_u_comparison/n{args.sample_size}"
+    tables.mkdir(parents=True, exist_ok=True)
+    figures.mkdir(parents=True, exist_ok=True)
+    summary.to_csv(tables / "width_and_zero_inclusion.csv", index=False)
+    (tables / "paper_table.tex").write_text(combined_table_tex(summary))
+    frame.to_csv(tables / "replicate_metrics.csv", index=False)
+    inputs = []
+    for smoothness, panel in summary.groupby("eps_smoothness"):
+        stem = f"noise_{smoothness:g}".replace(".", "p")
+        panel.to_csv(tables / (stem + ".csv"), index=False)
+        path = tables / (stem + ".tex")
+        path.write_text(table_tex(panel))
+        inputs.append(r"\input{" + os.path.relpath(path, ROOT) + "}")
+    (tables / "tables.tex").write_text("\n".join(inputs) + "\n")
+    plot_tables(summary, figures / "width_and_zero_inclusion")
+    provenance = {
+        "input_runs": [str(run.resolve()) for run in args.runs],
+        "input_manifest_sha256": {str(run): file_hash(run / "manifest.json") for run in args.runs},
+        "generator_sha256": file_hash(Path(__file__)), "cohort": "all_available",
+        "delta_definition": "signed U +/- 2*z*sqrt(score_variance/n), intersect with HSIC>=0, then sqrt",
+        "sample_size": args.sample_size, "noise_smoothness": sorted(summary.eps_smoothness.unique()),
+        "repetitions": len(frame) // 3, "summary_rows": len(summary),
+        "replicate_metrics_sha256": file_hash(tables / "replicate_metrics.csv"),
+    }
+    (tables / "provenance.json").write_text(json.dumps(provenance, indent=2) + "\n")
+    print(f"Saved {len(summary)} summary rows from {len(frame) // 3} repetitions to {tables}")
+
+
+if __name__ == "__main__":
+    main()
